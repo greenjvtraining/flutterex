@@ -1,36 +1,38 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Flutter Page Navigation',
-      initialRoute: '/',
-      routes: {
-        '/': (context) => FirstPage(),
-        '/second': (context) => SecondPage(),
-        '/third': (context) => ThirdPage(),
-      },
+      home: FirstPage(),
     );
   }
 }
 
 class FirstPage extends StatelessWidget {
+  const FirstPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('First Page'),
+        title: const Text('First Page2'),
       ),
       body: Center(
         child: ElevatedButton(
-          child: Text('Go to Second Page'),
+          child: const Text('Go to Second Page'),
           onPressed: () {
-            Navigator.pushNamed(context, '/second');
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SecondPage()),
+            );
           },
         ),
       ),
@@ -39,24 +41,29 @@ class FirstPage extends StatelessWidget {
 }
 
 class SecondPage extends StatelessWidget {
+  const SecondPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Second Page'),
+        title: const Text('Second Page2'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ElevatedButton(
-              child: Text('Go to Third Page'),
+              child: const Text('Go to Third Page'),
               onPressed: () {
-                Navigator.pushNamed(context, '/third');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ThirdPage()),
+                );
               },
             ),
             ElevatedButton(
-              child: Text('Go Back to First Page'),
+              child: const Text('Go Back to First Page'),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -69,26 +76,28 @@ class SecondPage extends StatelessWidget {
 }
 
 class ThirdPage extends StatelessWidget {
+  const ThirdPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Third Page'),
+        title: const Text('Third Page2'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ElevatedButton(
-              child: Text('Go Back to Second Page'),
+              child: const Text('Go Back to Second Page'),
               onPressed: () {
                 Navigator.pop(context);
               },
             ),
             ElevatedButton(
-              child: Text('Go Back to First Page'),
+              child: const Text('Go Back to First Page'),
               onPressed: () {
-                Navigator.popUntil(context, ModalRoute.withName('/'));
+                Navigator.popUntil(context, (route) => route.isFirst);
               },
             ),
           ],
