@@ -1,0 +1,12 @@
+2. flutterfire에러
+flutterfire : 'flutterfire' 용어가 cmdlet, 함수, 스크립트 파일 또는 실행할 수 있는 프로그램 이름으로 인식되지 않습니다. 이름이 정확한지 확인 하고 경로가 포함된 경우 경로가 올바른지 검증한 다음 다시 시도하십시오.
+
+환경변수 설정
+윈도우 검색창에 env입력
+path 선택, [편집]클릭
+PUB\Cache\bin가 설치된 경로 입력후 [확인]
+
+
+C:\Users\GG\AppData\Local\Pub\Cache\bin
+
+참고 : https://velog.io/@tett_77/Firebase%EC%99%80-Flutter-%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0
